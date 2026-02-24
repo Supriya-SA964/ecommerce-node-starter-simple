@@ -1,0 +1,13 @@
+<%- include('partials/header') %>
+
+<h1>Order Confirmed</h1>
+<p>Order number: <strong><%= order.order_no %></strong></p>
+<p>Status: <%= order.status %></p>
+
+<ul class="order-items">
+  <% order.items.forEach(i => { %>
+    <li><%= i.title %> x <%= i.qty %> — ₹<%= (i.price * i.qty).toFixed(2) %></li>
+  <% }) %>
+</ul>
+
+<%- include('partials/footer') %>

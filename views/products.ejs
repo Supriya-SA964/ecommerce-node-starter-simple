@@ -1,0 +1,168 @@
+<%- include('partials/header') %>
+
+<style>
+
+.products-container{
+
+max-width:1200px;
+margin:auto;
+padding:30px;
+
+}
+
+
+.products-title{
+
+text-align:center;
+font-size:35px;
+color:#ff6600;
+margin-bottom:30px;
+
+}
+
+
+.products-grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+
+}
+
+
+.product-card{
+
+background:white;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.2);
+padding:15px;
+text-align:center;
+transition:0.3s;
+
+}
+
+
+.product-card:hover{
+
+transform:scale(1.05);
+
+}
+
+
+.product-card img{
+
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:10px;
+
+}
+
+
+.product-name{
+
+font-size:20px;
+margin:10px 0;
+font-weight:bold;
+
+}
+
+
+.product-price{
+
+color:green;
+font-size:18px;
+margin-bottom:10px;
+
+}
+
+
+.cart-btn{
+
+background:#ff6600;
+color:white;
+border:none;
+padding:10px;
+width:100%;
+border-radius:5px;
+cursor:pointer;
+font-size:16px;
+
+}
+
+
+.cart-btn:hover{
+
+background:black;
+
+}
+
+</style>
+
+
+
+<div class="products-container">
+
+
+<div class="products-title">
+
+🛍 Our Products
+
+</div>
+
+
+<div class="products-grid">
+
+
+<% products.forEach(product => { 
+const imgs = JSON.parse(product.images || '[]');
+%>
+
+
+<div class="product-card">
+
+
+<img src="/images/laptop2.jpg" width="120">
+
+<div class="product-name">
+
+<%= product.title %>
+
+</div>
+
+
+<div class="product-price">
+
+₹ <%= product.price %>
+
+</div>
+
+
+<form method="POST" action="/cart/add">
+
+<input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+<input type="hidden" name="productId" value="<%= product.id %>">
+
+<button class="cart-btn">
+
+Add to Cart 🛒
+
+</button>
+
+</form>
+
+
+</div>
+
+
+<% }) %>
+
+
+</div>
+
+
+</div>
+
+
+<%- include('partials/footer') %>

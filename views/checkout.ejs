@@ -1,0 +1,26 @@
+<%- include('partials/header') %>
+
+<h1>Checkout</h1>
+
+<% if (errors && errors.length) { %>
+  <div class="notice error"><ul><% errors.forEach(e => { %><li><%= e.msg || e %></li><% }) %></ul></div>
+<% } %>
+
+<form method="post" action="/orders/place" class="checkout-form">
+  <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+  <label>Full name <input name="name" value="<%= form.name || '' %>"></label>
+  <label>Email <input name="email" value="<%= form.email || '' %>"></label>
+  <label>Shipping address <textarea name="address"><%= form.address || '' %></textarea></label>
+
+  <h3>Order Summary</h3>
+  <ul class="order-summary">
+    <% items.forEach(it => { %>
+      <li><%= it.title %> x <%= it.qty %> — ₹<%= (it.price * it.qty).toFixed(2) %></li>
+    <% }) %>
+    <li class="total">Total — ₹<%= total.toFixed(2) %></li>
+  </ul>
+
+  <button class="btn primary">Place order</button>
+</form>
+
+<%- include('partials/footer') %>

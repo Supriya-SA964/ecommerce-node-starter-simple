@@ -1,0 +1,16 @@
+<%- include('partials/header') %>
+
+<h1>Search results for "<%= q %>"</h1>
+<div class="grid">
+  <% products.forEach(p => { const imgs = JSON.parse(p.images || '[]'); %>
+    <article class="card">
+      <a href="/products/<%= p.slug %>">
+        <img src="<%= imgs[0] || '/public/images/placeholder.png' %>" alt="<%= p.title %>">
+        <h3><%= p.title %></h3>
+        <p class="price">₹<%= p.price %></p>
+      </a>
+    </article>
+  <% }) %>
+</div>
+
+<%- include('partials/footer') %>

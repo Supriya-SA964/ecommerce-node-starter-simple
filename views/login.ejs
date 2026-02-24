@@ -1,0 +1,144 @@
+<%- include('partials/header') %>
+
+<style>
+
+.login-container{
+
+width:400px;
+margin:60px auto;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 0 15px rgba(0,0,0,0.2);
+text-align:center;
+
+}
+
+
+.login-title{
+
+font-size:30px;
+color:#ff6600;
+margin-bottom:20px;
+
+}
+
+
+.login-container input{
+
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:5px;
+border:1px solid #ccc;
+font-size:16px;
+
+}
+
+
+.login-container input:focus{
+
+border-color:#ff6600;
+outline:none;
+
+}
+
+
+.login-btn{
+
+width:100%;
+padding:12px;
+background:#ff6600;
+color:white;
+font-size:18px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+
+}
+
+
+.login-btn:hover{
+
+background:black;
+
+}
+
+
+.register-link{
+
+margin-top:15px;
+display:block;
+
+}
+
+
+.register-link a{
+
+color:#ff6600;
+text-decoration:none;
+font-weight:bold;
+
+}
+
+
+.register-link a:hover{
+
+text-decoration:underline;
+
+}
+
+</style>
+
+
+
+<div class="login-container">
+
+
+<div class="login-title">
+
+🔐 Login
+
+</div>
+
+
+<form method="POST" action="/login">
+
+
+<input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+
+<input type="email" name="email" placeholder="Enter Email" required>
+
+
+<input type="password" name="password" placeholder="Enter Password" required>
+
+
+<button class="login-btn">
+
+Login
+
+</button>
+
+
+</form>
+
+
+
+<div class="register-link">
+
+Don't have account?
+
+<a href="/register">
+
+Register
+
+</a>
+
+</div>
+
+
+</div>
+
+
+<%- include('partials/footer') %>

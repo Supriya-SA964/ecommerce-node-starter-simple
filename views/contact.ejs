@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Contact Us</title>
+
+<link rel="stylesheet" href="/style.css">
+
+<style>
+
+.contact-container{
+
+width:500px;
+margin:50px auto;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 0 10px gray;
+
+}
+
+.contact-container h2{
+
+text-align:center;
+margin-bottom:20px;
+
+}
+
+.contact-container input,
+.contact-container textarea{
+
+width:100%;
+padding:10px;
+margin:10px 0;
+border-radius:5px;
+border:1px solid gray;
+
+}
+
+.contact-container button{
+
+width:100%;
+padding:12px;
+background:orange;
+color:white;
+border:none;
+font-size:18px;
+border-radius:5px;
+cursor:pointer;
+
+}
+
+.contact-container button:hover{
+
+background:black;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<header>
+
+<h1>🛒 ShopEasy</h1>
+
+<nav>
+
+<a href="/">Home</a>
+
+<a href="/cart">Cart</a>
+
+<a href="/about">About</a>
+
+<a href="/contact">Contact</a>
+
+<a href="/login">Login</a>
+
+</nav>
+
+</header>
+
+
+
+<div class="contact-container">
+
+<h2>Contact Us</h2>
+
+<form method="POST" action="/contact">
+
+<input type="text" name="name" placeholder="Your Name" required>
+
+<input type="email" name="email" placeholder="Your Email" required>
+
+<textarea name="message" placeholder="Your Message" rows="5"></textarea>
+
+<button type="submit">Send Message</button>
+
+</form>
+
+</div>
+
+
+</body>
+</html>

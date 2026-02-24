@@ -1,0 +1,12 @@
+<%- include('partials/header') %>
+
+<h1>Register</h1>
+<form method="post" action="/auth/register">
+  <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+  <label>Name <input name="name"></label>
+  <label>Email <input name="email"></label>
+  <label>Password <input name="password" type="password"></label>
+  <button>Register</button>
+</form>
+
+<%- include('partials/footer') %>
